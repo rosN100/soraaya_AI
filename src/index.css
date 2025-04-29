@@ -1,0 +1,138 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 45% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 225 45% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 225 45% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 255 80% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 223 47% 20%;
+    --muted-foreground: 215.4 16.3% 80%;
+
+    --accent: 184 90% 65%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-soraaya-space-blue text-soraaya-white;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
+  }
+}
+
+.audioPlayer {
+  @apply w-full bg-soraaya-space-blue rounded-md p-3 glass-card;
+}
+
+.audioPlayer .rhap_progress-indicator {
+  @apply bg-soraaya-indigo;
+}
+
+.audioPlayer .rhap_progress-filled {
+  @apply bg-soraaya-indigo;
+}
+
+.audioPlayer .rhap_play-pause-button {
+  @apply text-soraaya-indigo;
+}
+
+.audioPlayer .rhap_volume-indicator {
+  @apply bg-soraaya-indigo;
+}
+
+.rhap_container {
+  @apply bg-transparent shadow-none !important;
+}
+
+.rhap_time {
+  @apply text-soraaya-white/80 !important;
+}
+
+.rhap_progress-bar {
+  @apply bg-soraaya-white/20 !important;
+}
+
+.rhap_download-progress {
+  @apply bg-soraaya-white/30 !important;
+}
+
+.rhap_volume-bar {
+  @apply bg-soraaya-white/20 !important;
+}
+
+.spotlight {
+  @apply absolute -top-40 -left-40 h-[500px] w-[500px] bg-soraaya-indigo/20 rounded-full blur-3xl pointer-events-none opacity-50 -z-10;
+}
+
+.spotlight-2 {
+  @apply absolute -bottom-40 -right-40 h-[500px] w-[500px] bg-soraaya-cyan/20 rounded-full blur-3xl pointer-events-none opacity-50 -z-10;
+}
+
+.cal-embed {
+  --cal-brand-color: #6246EA;
+  --cal-brand-text-color: #F1F2F6;
+}
+
+/* Stars animation */
+.stars {
+  @apply fixed inset-0 w-full h-full pointer-events-none opacity-30 -z-10;
+  background-image: radial-gradient(2px 2px at 20px 30px, #5CEFEF, rgba(0, 0, 0, 0)), 
+                    radial-gradient(2px 2px at 40px 70px, #5CEFEF, rgba(0, 0, 0, 0)), 
+                    radial-gradient(2px 2px at 60px 110px, #F1F2F6, rgba(0, 0, 0, 0)), 
+                    radial-gradient(2px 2px at 80px 150px, #6246EA, rgba(0, 0, 0, 0)), 
+                    radial-gradient(2px 2px at 100px 190px, #F1F2F6, rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 120px 230px, #F1F2F6, rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 140px 270px, #5CEFEF, rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 160px 310px, #6246EA, rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 180px 350px, #F1F2F6, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 400px;
+}
