@@ -1,0 +1,13 @@
+.button-lift {
+  transition: all 0.3s ease !important;
+}
+
+.button-lift:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* For the outline variant */
+.button-lift.button-outline:hover {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15) !important;
+}

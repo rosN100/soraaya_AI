@@ -7,6 +7,7 @@ import CalendarEmbed from "@/components/CalendarEmbed";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import '@/styles/button.css';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -48,7 +49,8 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-8 lg:pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative">
+      <main className="mt-[100px] relative z-10">
+      <section className="pt-20 lg:pt-28 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center opacity-0 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-soraaya-white">
             AI Employees That Never Sleep, <br className="hidden md:block" />
@@ -59,22 +61,36 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button 
-              className="text-lg py-6 px-8 bg-soraaya-indigo hover:bg-soraaya-indigo/90 text-white"
+              className="text-lg py-6 px-8 bg-soraaya-indigo hover:bg-soraaya-indigo/90 text-white button-lift"
               size="lg"
               onClick={() => {
-                const demoSection = document.getElementById('demo-calendar');
-                demoSection?.scrollIntoView({ behavior: 'smooth' });
+                const contactSection = document.getElementById('contact');
+                const navbarHeight = 100;
+                if (contactSection) {
+                  const elementPosition = contactSection.getBoundingClientRect().top + window.pageYOffset;
+                  window.scrollTo({
+                    top: elementPosition - navbarHeight,
+                    behavior: 'smooth'
+                  });
+                }
               }}
             >
               Book a Demo
             </Button>
             <Button 
               variant="outline" 
-              className="text-lg py-6 px-8 text-soraaya-white border-soraaya-white/20 bg-white/5 hover:bg-white/10"
+              className="text-lg py-6 px-8 text-soraaya-white border-soraaya-white/20 bg-white/5 hover:bg-white/10 button-lift button-outline"
               size="lg"
               onClick={() => {
                 const servicesSection = document.getElementById('services');
-                servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                const navbarHeight = 100;
+                if (servicesSection) {
+                  const elementPosition = servicesSection.getBoundingClientRect().top + window.pageYOffset;
+                  window.scrollTo({
+                    top: elementPosition - navbarHeight,
+                    behavior: 'smooth'
+                  });
+                }
               }}
             >
               Learn More
@@ -84,24 +100,30 @@ const Index = () => {
       </section>
       
       {/* Audio Samples */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 relative" id="demo">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 relative" id="demo">
         <div className="max-w-7xl mx-auto opacity-0 animate-on-scroll">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Hear Our AI Agents in Action</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-soraaya-white">Hear Our AI Agents in Action</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <AudioSample 
-              title="Sales Outreach Example" 
+              title="Property Lead Generation" 
+              subtitle="Persuasive & Engaging"
               src="/assets/agent1.wav" 
+              language="English"
+              agentName="Amrithanshu"
             />
             <AudioSample 
-              title="Customer Support Example" 
+              title="Property Qualification" 
+              subtitle="Professional & Consultative"
               src="/assets/agent2.wav" 
+              language="English"
+              agentName="Amrithanshu"
             />
           </div>
         </div>
       </section>
       
       {/* Services Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 relative" id="services">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 relative" id="services">
         <div className="max-w-7xl mx-auto opacity-0 animate-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">Our Services</h2>
           <p className="text-lg text-soraaya-white/70 text-center max-w-3xl mx-auto mb-12">
@@ -129,7 +151,7 @@ const Index = () => {
       </section>
       
       {/* CTA / Calendar Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 relative" id="demo-calendar">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 relative" id="contact">
         <div className="max-w-5xl mx-auto opacity-0 animate-on-scroll">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
@@ -143,6 +165,7 @@ const Index = () => {
       </section>
       
       {/* Footer */}
+      </main>
       <Footer />
       
     </div>
